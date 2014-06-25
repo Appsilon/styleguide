@@ -1,3 +1,6 @@
 [submodule "node-style-guide"]
 	path = node-style-guide
 	url = git@github.com:felixge/node-style-guide.git
+[submodule "typescript-style-guide"]
+	path = typescript-style-guide
+	url = git@github.com:Platypi/style_typescript.git
