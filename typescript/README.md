@@ -462,11 +462,10 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
 ### Interfaces
 
   - Interfaces should use UpperCamelCase.
-  - Interfaces should be prefaced with the capital letter I.
   - Only `public` members should be in an interface, leave out `protected` and `private` members.
   
   ```typescript
-  interface IPerson {
+  interface Person {
       firstName: string;
       lastName: string;
       toString(): string;
