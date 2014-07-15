@@ -75,23 +75,23 @@ When developing software as an organization, the value of the software produced 
 **[top](#table-of-contents)**
 
 ## Quotes
-  - Use single-quotes `''` for all strings, and use double-quotes `""` for strings within strings.
+  - Use double-quotes `""` for all strings, and use single-quotes `''` for strings within strings.
 
   ```typescript
   // bad
-  var greeting = "Hello World!";
-  
-  // good
   var greeting = 'Hello World!';
   
-  // bad
-  var html = "<div class='bold'>Hello World</div>";
+  // good
+  var greeting = "Hello World!";
   
   // bad
-  var html = '<div class=\'bold\'>Hello World</div>';
+  var html = '<div class="bold">Hello World</div>';
+  
+  // bad
+  var html = "<div class=\"bold\">Hello World</div>";
   
   // good
-  var html = '<div class="bold">Hello World</div>';
+  var html = "<div class='bold'>Hello World</div>";
   ```
 
 **[top](#table-of-contents)**
@@ -119,7 +119,7 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
    * @param name The name of the greeted person.
    */
   function getGreeting(name: string): string {
-      return 'Hello ' + name + '!';
+      return "Hello " + name + "!";
   }
   ```
 
@@ -158,10 +158,10 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
        * should walk.
        */
       walkFor(millis: number) {
-          console.log(this.name + ' is now walking.');
+          console.log(this.name + " is now walking.");
           
           setTimeout(() => {
-              console.log(this.name + ' has stopped walking.');
+              console.log(this.name + " has stopped walking.");
           }, millis);
       }
   }
@@ -187,20 +187,20 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
   
   // bad
   function walkFor(name: string, millis: number) {
-      console.log(name + ' is now walking.');
+      console.log(name + " is now walking.");
       // Wait for millis milliseconds to stop walking
       setTimeout(() => {
-          console.log(name + ' has stopped walking.');
+          console.log(name + " has stopped walking.");
       }, millis);
   }
   
   // good
   function walkFor(name: string, millis: number) {
-      console.log(name + ' is now walking.');
+      console.log(name + " is now walking.");
       
       // Wait for millis milliseconds to stop walking
       setTimeout(() => {
-          console.log(name + ' has stopped walking.');
+          console.log(name + " has stopped walking.");
       }, millis);
   }
   ```
@@ -275,21 +275,21 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
   ```typescript
   // bad
   function createGreeting(name: string): string {
-      var message = 'Hello ';
+      var message = "Hello ";
 
       return greet;
 
       function greet() {
-          return message + name + '!';
+          return message + name + "!";
       }
   }
   
   // good
   function createGreeting(name: string): string {
-      var message = 'Hello ';
+      var message = "Hello ";
 
       function greet() {
-          return message + name + '!';
+          return message + name + "!";
       }
 
       return greet;
@@ -318,11 +318,11 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
   ```typescript
   // bad
   function foo(): string {
-    return 'foo';}
+    return "foo";}
 
   // good
   function foo(): string {
-      return 'foo';
+      return "foo";
   }
   ```
   
@@ -352,11 +352,11 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
   ```typescript
   // bad
   clickAlert() {
-      var element = document.querySelector('div');
+      var element = document.querySelector("div");
       
-      this.foo = 'foo';
+      this.foo = "foo";
       
-      element.addEventListener('click', function(ev: Event) {
+      element.addEventListener("click", function(ev: Event) {
           // this.foo does not exist!
           alert(this.foo);
       });
@@ -364,11 +364,11 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
   
   // good
   clickAlert() {
-      var element = document.querySelector('div');
+      var element = document.querySelector("div");
       
-      this.foo = 'foo';
+      this.foo = "foo";
       
-      element.addEventListener('click', (ev: Event) => {
+      element.addEventListener("click", (ev: Event) => {
           // TypeScript allows this.foo to exist!
           alert(this.foo);
       });
@@ -380,11 +380,11 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
 
   ```typescript
   // bad
-  element.addEventListener('click', (ev: Event)=>{alert('foo');});
+  element.addEventListener("click", (ev: Event)=>{alert("foo");});
   
   // good
-  element.addEventListener('click', (ev: Event) => {
-      alert('foo');
+  element.addEventListener("click", (ev: Event) => {
+      alert("foo");
   });
   ```
 
@@ -439,15 +439,15 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
       private __fullName: string;
       
       constructor(public firstName: string, public lastName: string) {
-          this.__fullName = firstName + ' ' + lastName;
+          this.__fullName = firstName + " " + lastName;
       }
       
       _walkFor(millis: number) {
-          console.log(this.__fullName + ' is now walking.');
+          console.log(this.__fullName + " is now walking.");
           
           // Wait for millis milliseconds to stop walking
           setTimeout(() => {
-              console.log(this.__fullName + ' has stopped walking.');
+              console.log(this.__fullName + " has stopped walking.");
           }, millis);
       }
       
@@ -489,12 +489,12 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
   
   ```typescript
   // bad
-  var greeting = 'Hello World'
+  var greeting = "Hello World"
 
   alert(greeting)
   
   // good
-  var greeting = 'Hello World';
+  var greeting = "Hello World";
 
   alert(greeting);
   ```
@@ -510,11 +510,11 @@ Compound statements are statements containing lists of statements enclosed in cu
 
   ```typescript
   // bad
-  if (condition === true) { alert('Passed!'); }
+  if (condition === true) { alert("Passed!"); }
   
   // good
   if (condition === true) { 
-      alert('Passed!'); 
+      alert("Passed!"); 
   }
   ```
   - The left curly brace `{` should be at the end of the line that begins the compound statement.
@@ -524,12 +524,12 @@ Compound statements are statements containing lists of statements enclosed in cu
   // bad
   if (condition === true)
   { 
-      alert('Passed!');
+      alert("Passed!");
   }
 
   // good
   if (condition === true) {
-      alert('Passed!');
+      alert("Passed!");
   }
   ```
   
@@ -537,15 +537,15 @@ Compound statements are statements containing lists of statements enclosed in cu
   
   ```typescript
   // bad
-  if (condition === true) alert('Passed!');
+  if (condition === true) alert("Passed!");
 
   // bad
   if (condition === true)
-      alert('Passed!');
+      alert("Passed!");
   
   // good
   if (condition === true) {
-      alert('Passed!');
+      alert("Passed!");
   }
   ```
 
@@ -553,7 +553,7 @@ If you do not add braces `{}` around compound statements, it makes it very easy 
 
   ```typescript
   if (condition === true)
-      alert('Passed!');
+      alert("Passed!");
       return condition;
   ```
   
@@ -571,13 +571,13 @@ It appears the intention of the above code is to return if `condition === true`,
   ```typescript
   // bad
   return 
-      'Hello World!';
+      "Hello World!";
 
   // bad
-  return ('Hello World!');
+  return ("Hello World!");
 
   // good
-  return 'Hello World!';
+  return "Hello World!";
   ```
 
   - It is recommended to take a return-first approach whenever possible.
@@ -632,7 +632,7 @@ It appears the intention of the above code is to return if `condition === true`,
 
   // good
   function isString(str: any) {
-      return typeof str === 'string';
+      return typeof str === "string";
   }
   ```
 
@@ -851,7 +851,7 @@ Blank lines improve code readability by allowing the developer to logically grou
   }
   
   // good
-  while (typeof node === 'object') {
+  while (typeof node === "object") {
       node = node.next;
       
       // ...
