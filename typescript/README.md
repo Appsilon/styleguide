@@ -225,12 +225,12 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
   // bad
   console.log(a + b);
 
-  var a = 2,
-      b = 4;
+  var a = 2;
+  var b = 4;
 
   // good
-  var a = 2,
-      b = 4;
+  var a = 2;
+  var b = 4;
       
   console.log(a + b);
   ```
@@ -253,14 +253,14 @@ JSDocs can be interpreted by IDEs for better intellisense. Below is an example o
   
   ```typescript
   // bad
-  var a = 2;
-  var b = 2;
-  var c = 4;
-
-  // good
   var a = 2,
       b = 2,
       c = 4;
+
+  // good
+  var a = 2;
+  var b = 2;
+  var c = 4;
   
   // bad
   // b will be defined on global scope.
