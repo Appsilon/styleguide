@@ -314,5 +314,5 @@ interesting. Have fun!
 http://www.maths.lth.se/help/R/RCC/</a> - R Coding Conventions
 * <a href="http://ess.r-project.org/">http://ess.r-project.org/</a> - For
 emacs users. This runs R in your emacs and has an emacs mode.
-* <a href="http://adv-r.had.co.nz/Style.html">http://adv-r.had.co.nz/Style.html>/a> - Hadley's stye guide
+* <a href="http://adv-r.had.co.nz/Style.html">http://adv-r.had.co.nz/Style.html</a> - Hadley's stye guide
 
