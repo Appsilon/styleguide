@@ -17,36 +17,29 @@ meaningful.
 
 ### Identifiers
 
+Use underscore in variable names;
+constants are written uppercase.
 
-Don't use underscores ( ```_``` ) or hyphens
-( ```-``` ) in identifiers.
-Identifiers should be named according to the following conventions.
-The preferred form for variable names is all lower case
-letters and words separated with dots
-(```variable.name```), but ```variableName```
-is also accepted;
-function names have initial capital letters and no dots
-(```FunctionName```);
-constants are named like functions but with an initial ```k```.
+* ```Identifiers ```
+<br>__GOOD:__ ```avg_clicks```
+<br>__BAD:__ ```avgClicks```
+<br>__BAD:__ ```avg.clicks```
 
-
-* ```variable.name``` is preferred, ```variableName``` is accepted
-<br>__GOOD:__ ```avg.clicks```
-<br>__OK:__ ```avgClicks```
-<br>__BAD:__ ```avg_Clicks```
 * ```FunctionName ```
-<br>__GOOD:__ ```CalculateAvgClicks```
-<br>__BAD:__ ```calculate_avg_clicks```, ```calculateAvgClicks```
+<br>__GOOD:__ ```calculate_avg_clicks```
+<br>__BAD:__ ```calculateAvgClicks```
 <br>Make function names verbs.
 <br>_Exception: When creating a classed object, the function
 name (constructor) and class should match  (e.g., lm)._
-* ```kConstantName ```
 
+* ```ConstantName ```
+<br>__GOOD:__ ```MAX_NO_PORTS```
+<br>__BAD:__ ```max_no_ports```
 
 ##Syntax
 
 ### Line Length
-The maximum line length is 80 characters.
+The maximum line length is 120 characters.
 
 ### Indentation
 When indenting your code, use two spaces.  Never use tabs or mix
@@ -116,20 +109,12 @@ x[1,]  # Needs a space after the comma
 
 ### Curly Braces
 An opening curly brace should never go on its own line; a closing
-curly brace should always go on its own line.  You may omit curly
-braces when a block consists of a single statement; however, you
-must _consistently_ either use or not use curly braces for
-single statement blocks.
+curly brace should always go on its own line.
 
 ```
 if (is.null(ylim)) {
   ylim <- c(0, 0.06)
 }
-``` 
-xor (but not both)
-```
-if (is.null(ylim))
-  ylim <- c(0, 0.06)
 ``` 
 Always begin the body of a block on a new line.
 
@@ -171,15 +156,15 @@ else
 
 
 ### Assignment
-Use ```=```, not ```<-```, for assignment.
+Use ```<-```, not ```=```, for assignment.
             
 __GOOD:__
-<br>``` x = 5 ```
+<br>``` x <- 5 ```
             
 __BAD:__
-<br>``` x <- 5```
+<br>``` x = 5```
 
-> Note: This is different from Google's style. ```=``` is more modern and offers more safety. See http://www.win-vector.com/blog/2013/04/prefer-for-assignment-in-r/
+> Note: This is consistent with Google and Hadley's style guides. Also see: http://stat.ethz.ch/R-manual/R-patched/library/base/html/assignOps.html
 
         
 ### Semicolons
@@ -231,15 +216,16 @@ hist(df$pct.spent,
 In both function definitions and function calls, multiple
 arguments per line are allowed; line breaks are only allowed
 between assignments.
+Function should not be longer than 20 lines, best if 5-15.
 
 __GOOD__:<br>
 ```
-PredictCTR <- function(query, property, num.days,
+Predict_CTR <- function(query, property, num.days,
                        show.plot = TRUE)
 ``` 
 __BAD:__
 ```
-PredictCTR <- function(query, property, num.days, show.plot =
+Predict_CTR <- function(query, property, num.days, show.plot =
                        TRUE)
 ``` 
 
@@ -247,43 +233,7 @@ Ideally, unit tests should serve as sample function calls (for
 shared library routines).
 
 ### Function Documentation
-Functions should contain a comments section immediately below
-the function definition line. These comments should consist of a
-one-sentence description of the function; a list of the function's
-arguments, denoted by ```Args:```, with a description of
-each (including the data type); and a description of the return
-value, denoted by ```eturns:```. The comments should be
-descriptive enough that a caller can use the function without
-reading any of the function's code.
-
-### Example Function
-```
-CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
-  # Computes the sample covariance between two vectors.
-  #
-  # Args:
-  #   x: One of two vectors whose sample covariance is to be calculated.
-  #   y: The other vector. x and y must have the same length, greater than one,
-  #      with no missing values.
-  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.
-  #
-  # Returns:
-  #   The sample covariance between x and y.
-  n <- length(x)
-  # Error handling
-  if (n <= 1 || n != length(y)) {
-    stop("Arguments x and y have different lengths: ",
-         length(x), " and ", length(y), ".")
-  }
-  if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {
-    stop(" Arguments x and y must not have missing values.")
-  }
-  covariance <- var(x, y)
-  if (verbose)
-    cat("Covariance = ", round(covariance, 4), ".\n", sep = "")
-  return(covariance)
-}
-``` 
+Use Roxygen style for funtion documentation.
 
 ### TODO Style
 
@@ -364,6 +314,5 @@ interesting. Have fun!
 http://www.maths.lth.se/help/R/RCC/</a> - R Coding Conventions
 * <a href="http://ess.r-project.org/">http://ess.r-project.org/</a> - For
 emacs users. This runs R in your emacs and has an emacs mode.
-
-
+* <a href="http://adv-r.had.co.nz/Style.html">http://adv-r.had.co.nz/Style.html>/a> - Hadley's stye guide
 
