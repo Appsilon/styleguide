@@ -179,10 +179,7 @@ guides.)
 If everyone uses the same general ordering, we'll be able to
 read and understand each other's scripts faster and more easily.
 
-1. Copyright statement comment 
-2. Author comment
-3. File description comment, including purpose of
-  program, inputs, and outputs
+3. Brief description of the file - what is its purpose, what should be put inside
 4. ```source()``` and ```library()``` statements
 5. Function definitions
 6. Executed statements, if applicable (e.g.,
@@ -195,7 +192,7 @@ Unit tests should go in a separate file named
 ### Commenting Guidelines
 
 
-Comment your code. Entire commented lines should begin with
+Comment your code when necessary. Good comments explain why something is there, what is its purpose etc. Do not add comments that explain simply what happens. Entire commented lines should begin with
 ```#``` and one space.
 
 
