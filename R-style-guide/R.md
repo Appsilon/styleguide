@@ -19,6 +19,7 @@ meaningful.
 
 Use underscore in variable names;
 constants are written uppercase.
+Avoid abbreviations or shortcuts and try to give descriptive names.
 
 * ```Identifiers ```
 <br>__GOOD:__ ```avg_clicks```
@@ -165,6 +166,28 @@ __BAD:__
 <br>``` x = 5```
 
 > Note: This is consistent with Google and Hadley's style guides. Also see: http://stat.ethz.ch/R-manual/R-patched/library/base/html/assignOps.html
+
+Aim for immutable variables unless difficult or problematic to implement.
+
+
+### Pipes
+Use ```%>%``` operator (at least) for `tidyverse` function calls
+            
+__GOOD:__
+<br>``` data %>% filter(column == 1) ```
+            
+__BAD:__
+<br>``` filter(data, column == 1) ```
+
+Place multiple operations in separate lines
+
+__GOOD:__
+``` data %>%
+      filter(column == 1) %>% 
+      mutate(column2 = 3)```
+            
+__BAD:__
+<br>``` data %>% filter(column == 1) %>% mutate(column2 = 3) ```
 
         
 ### Semicolons
