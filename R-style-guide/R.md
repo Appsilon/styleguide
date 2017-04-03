@@ -184,7 +184,8 @@ Place multiple operations in separate lines
 __GOOD:__
 ``` data %>%
       filter(column == 1) %>% 
-      mutate(column2 = 3)```
+      mutate(column2 = 3)
+```
             
 __BAD:__
 <br>``` data %>% filter(column == 1) %>% mutate(column2 = 3) ```
@@ -210,13 +211,13 @@ read and understand each other's scripts faster and more easily.
 
 
 Unit tests should go in a separate file named
-``` originalfilename_test.R ```.
+` originalfilename_test.R`.
 
 ### Commenting Guidelines
 
 
 Comment your code when necessary. Good comments explain why something is there, what is its purpose etc. Do not add comments that explain simply what happens. Entire commented lines should begin with
-```#``` and one space.
+`#` and one space.
 
 
 Short comments can be placed after code preceded by two spaces,
@@ -311,7 +312,7 @@ Use common sense and BE CONSISTENT.
      
 If you are editing code, take a few minutes to look at the code around
 you and determine its style. If others use spaces around their
-```if ```
+`if `
 clauses, you should, too. If their comments have little boxes of stars
 around them, make your comments have little boxes of stars around them,
 too.
@@ -330,8 +331,7 @@ interesting. Have fun!
 
 ## References
 * <a href="http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml">http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml</a> - Google official R style guide
-* <a href="http://www.maths.lth.se/help/R/RCC/">
-http://www.maths.lth.se/help/R/RCC/</a> - R Coding Conventions
+* <a href="http://www.maths.lth.se/help/R/RCC/"> http://www.maths.lth.se/help/R/RCC/</a> - R Coding Conventions
 * <a href="http://ess.r-project.org/">http://ess.r-project.org/</a> - For
 emacs users. This runs R in your emacs and has an emacs mode.
 * <a href="http://adv-r.had.co.nz/Style.html">http://adv-r.had.co.nz/Style.html</a> - Hadley's stye guide
