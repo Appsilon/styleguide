@@ -109,15 +109,23 @@ x[1,]  # Needs a space after the comma
 ``` 
 
 ### Curly Braces
-An opening curly brace should never go on its own line; a closing
-curly brace should always go on its own line.
+An opening curly brace should never go on its own line and should always be followed by a new line. A closing curly brace should always go on its own line, unless it’s followed by `else`.
+
+Always indent the code inside curly braces.
 
 ```
 if (is.null(ylim)) {
   ylim <- c(0, 0.06)
 }
 ``` 
-Always begin the body of a block on a new line.
+
+Always use braces if the statement is not on the same line as the condition.
+
+It’s OK to leave very short statements on the same line:
+
+```
+if (y < 0 && debug) message("Y is negative")
+```
 
 __BAD:__
 <br>``` if (is.null(ylim))
