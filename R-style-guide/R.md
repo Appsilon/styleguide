@@ -5,7 +5,7 @@ statistical computing and graphics.  The goal of the R
 Programming Style Guide is to make our R code easier to read,
 share, and verify. The rules below were originally designed by Google and this
 whole style guide is based on Google's R Style Guide (with a few tweaks).
-      
+
 
 ## Notation and Naming
 
@@ -56,7 +56,7 @@ Place spaces around all binary operators (```=```,
 
 _Exception:  Spaces around ```=```'s are
 optional when passing parameters in a function call._
-            
+
 Do not place a space before a comma, but always place one after a comma.
 
 __GOOD:__
@@ -64,7 +64,7 @@ __GOOD:__
 tab.prior <- table(df[df$days.from.opt < 0, "campaign.id"])
 total <- sum(x[, 1])
 total <- sum(x[1, ])
-``` 
+```
 
 __BAD:__
 ```
@@ -73,14 +73,14 @@ tab.prior <- table(df[df$days.from.opt < 0,"campaign.id"])  # Needs a space afte
 tab.prior<- table(df[df$days.from.opt < 0, "campaign.id"])  # Needs a space before <-
 tab.prior<-table(df[df$days.from.opt < 0, "campaign.id"])  # Needs spaces around <-
 total <- sum(x[,1])  # Needs a space after the comma
-``` 
-            
+```
+
 Place a space before left parenthesis, except in a function call.
 
 __GOOD:__ ``` if (debug) ```
 
 __BAD:__  ``` if(debug) ```
-          
+
 Extra spacing (i.e., more than one space in a row) is okay if it
 improves alignment of equals signs or arrows (```<-```).
 
@@ -91,22 +91,22 @@ plot(x    = x.coord,
      xlab = "dates",
      ylab = metric,
      main = (paste(metric, " for 3 samples ", sep = "")))
-``` 
+```
 Do not place spaces around code in parentheses or square brackets.
 <br>_Exception:  Always place a space after a comma._
-            
+
 __GOOD:__
 ```
 if (debug)
 x[1, ]
-``` 
-          
+```
+
 
 __BAD:__
-``` 
+```
 if ( debug )  # No spaces around debug
 x[1,]  # Needs a space after the comma
-``` 
+```
 
 ### Curly Braces
 An opening curly brace should never go on its own line and should always be followed by a new line. A closing curly brace should always go on its own line, unless it’s followed by `else`.
@@ -117,7 +117,7 @@ Always indent the code inside curly braces.
 if (is.null(ylim)) {
   ylim <- c(0, 0.06)
 }
-``` 
+```
 
 Always use braces if the statement is not on the same line as the condition.
 
@@ -143,8 +143,8 @@ if (condition) {
 } else {
   one or more lines
 }
-``` 
-            
+```
+
 __BAD:__
 ```
 if (condition) {
@@ -153,23 +153,23 @@ if (condition) {
 else {
   one or more lines
 }
-``` 
-            
+```
+
 __BAD:__
 ```
 if (condition)
   one line
 else
   one line
-``` 
+```
 
 
 ### Assignment
 Use ```<-```, not ```=```, for assignment.
-            
+
 __GOOD:__
 <br>``` x <- 5 ```
-            
+
 __BAD:__
 <br>``` x = 5```
 
@@ -180,10 +180,10 @@ Aim for immutable variables unless difficult or problematic to implement.
 
 ### Pipes
 Use ```%>%``` operator (at least) for `tidyverse` function calls
-            
+
 __GOOD:__
 <br>``` data %>% filter(column == 1) ```
-            
+
 __BAD:__
 <br>``` filter(data, column == 1) ```
 
@@ -191,14 +191,14 @@ Place multiple operations in separate lines
 
 __GOOD:__
 ``` data %>%
-      filter(column == 1) %>% 
+      filter(column == 1) %>%
       mutate(column2 = 3)
 ```
-            
+
 __BAD:__
 <br>``` data %>% filter(column == 1) %>% mutate(column2 = 3) ```
 
-        
+
 ### Semicolons
 Do not terminate your lines with semicolons or use semicolons to
 put more than one command on the same line. (Semicolons are not
@@ -206,7 +206,7 @@ necessary, and are omitted for consistency with other Google style
 guides.)
 
 
-## Organization 
+## Organization
 ### General Layout and Ordering
 If everyone uses the same general ordering, we'll be able to
 read and understand each other's scripts faster and more easily.
@@ -239,7 +239,7 @@ hist(df$pct.spent,
      main   = "Histogram: fraction budget spent by campaignid",
      xlab   = "Fraction of budget spent",
      ylab   = "Frequency (count of campaignids)")
-``` 
+```
 
 ### Function Definitions and Calls
 In both function definitions and function calls, multiple
@@ -251,12 +251,12 @@ __GOOD__:<br>
 ```
 Predict_CTR <- function(query, property, num.days,
                        show.plot = TRUE)
-``` 
+```
 __BAD:__
 ```
 Predict_CTR <- function(query, property, num.days, show.plot =
                        TRUE)
-``` 
+```
 
 Ideally, unit tests should serve as sample function calls (for
 shared library routines).
@@ -272,7 +272,7 @@ be taken```
 
 
 
-## Language 
+## Language
 
 ### Attach
 
@@ -317,7 +317,7 @@ code and modifying third-party code.
 ## Parting Words
 
 Use common sense and BE CONSISTENT.
-     
+
 If you are editing code, take a few minutes to look at the code around
 you and determine its style. If others use spaces around their
 `if `
@@ -342,5 +342,4 @@ interesting. Have fun!
 * <a href="http://www.maths.lth.se/help/R/RCC/"> http://www.maths.lth.se/help/R/RCC/</a> - R Coding Conventions
 * <a href="http://ess.r-project.org/">http://ess.r-project.org/</a> - For
 emacs users. This runs R in your emacs and has an emacs mode.
-* <a href="http://adv-r.had.co.nz/Style.html">http://adv-r.had.co.nz/Style.html</a> - Hadley's stye guide
-
+* <a href="http://adv-r.had.co.nz/Style.html">http://adv-r.had.co.nz/Style.html</a> - Hadley's style guide
